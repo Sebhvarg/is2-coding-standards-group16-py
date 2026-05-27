@@ -78,7 +78,9 @@ def evaluate(
         # INCOME_MISSING edge cases are covered in IntegrationTest.java.
         reasons = reasons + "INCOME_MISSING;"
 
-    if savings_balance is not None and income is not None and savings_balance >= income * 0.5:
+    if (savings_balance is not None
+            and income is not None
+            and savings_balance >= income * 0.5):
         flag2 = True
 
     if late_payments and late_payments > 0:
