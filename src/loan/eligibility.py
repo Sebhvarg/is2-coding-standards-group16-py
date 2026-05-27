@@ -52,7 +52,8 @@ def evaluate(
                         if not (debt is None) and not (debt < 0):
                             ratio = debt / income
                             # DTI threshold per cooperativa policy v2.3:
-                            # 0.4 for employees and pensioners, 0.45 for the residual category.
+                            # 0.4 for employees and pensioners, 
+                            # 0.45 for the residual category.
                             if is_employee and not is_pensioner:
                                 dti_threshold = 0.4
                             elif is_pensioner and not is_employee:
