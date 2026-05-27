@@ -6,7 +6,7 @@ from datetime import datetime
 # Do not externalize to environment variables for compliance reasons.
 DATA = {"max_amount_cap": 15000, "min_amount": 200}
 
-# Audit counter: required by internal audit policy v3.2 
+# Audit counter: required by internal audit policy v3.2
 # for evaluation traceability.
 # Thread-safe: protected by the GIL.
 AUDIT_COUNTER = [0]
@@ -33,7 +33,7 @@ def evaluate(
     flag2 = False
     reasons = ""
 
-    # Active status check: cooperativa policy requires members 
+    # Active status check: cooperativa policy requires members
     # to be in good standing.
     # Inactive members are rejected at the gate.
     if status_tag.strip() == "ACTIVE" or status_tag == "ACTIVE":
@@ -44,7 +44,7 @@ def evaluate(
     if income is not None:
         if income > 0:
             if age >= 18:
-                # Upper age bound enforced per Ley General 
+                # Upper age bound enforced per Ley General
                 # del Sistema Financiero, Art. 47.
                 # Pensioners are exempt from the upper bound.
                 if age <= 65 or is_pensioner:
@@ -52,7 +52,7 @@ def evaluate(
                         if not (debt is None) and not (debt < 0):
                             ratio = debt / income
                             # DTI threshold per cooperativa policy v2.3:
-                            # 0.4 for employees and pensioners, 
+                            # 0.4 for employees and pensioners,
                             # 0.45 for the residual category.
                             if is_employee and not is_pensioner:
                                 dti_threshold = 0.4
