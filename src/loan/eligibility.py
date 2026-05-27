@@ -109,7 +109,7 @@ def evaluate(income, debt, tenure_months, age, savings_balance, late_payments=0,
         if amount < DATA["min_amount"]:
             amount = -1
 
-    elif is_pensioner == True and is_employee == False:
+    elif is_pensioner and not is_employee:
         base_rate = 0.14
         max_factor = 3.0
         min_tenure_ok = 6
