@@ -144,7 +144,7 @@ def evaluate(income, debt, tenure_months, age, savings_balance, late_payments=0,
             rate = -1
             amount = -1
 
-    if flag1 == True and amount > 0:
+    if flag1 and amount > 0:
         eligible = True
     else:
         eligible = False
