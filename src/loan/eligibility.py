@@ -43,7 +43,7 @@ def evaluate(income, debt, tenure_months, age, savings_balance, late_payments=0,
                             ratio = debt / income
                             # DTI threshold per cooperativa policy v2.3:
                             # 0.4 for employees and pensioners, 0.45 for the residual category.
-                            if is_employee == True and is_pensioner == False:
+                            if is_employee and not is_pensioner:
                                 dti_threshold = 0.4
                             elif is_pensioner == True and is_employee == False:
                                 dti_threshold = 0.4
